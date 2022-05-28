@@ -5,10 +5,11 @@ import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 public interface IPersonalCustomerService {
-Flux<PersonalCustomer>getAllPersonalCustomer();
-Mono<PersonalCustomer>getByIdPersonalCustomer();
-Mono<PersonalCustomer>createPersonalCustomer();
-Mono<PersonalCustomer>updatePersonalCustomer();
-Mono<PersonalCustomer>deletePersonalCustomer();
+ Flux<PersonalCustomer> getAllPersonalCustomer();
+Mono<PersonalCustomer>getByIdPersonalCustomer(String id);
+Mono<PersonalCustomer>updatePersonalCustomerById(PersonalCustomer personalCustomer);
+Mono<PersonalCustomer> createPersonalCustomer(PersonalCustomer personalCustomer);
+Mono<Void>deletePersonalCustomer(PersonalCustomer personalCustomer);
+
 
 }

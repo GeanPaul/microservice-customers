@@ -19,22 +19,24 @@ public class BusinessCustomerServiceImpl implements IBusinessCustomerService {
     }
 
     @Override
-    public Mono<BusinessCustomer> getByIdBusinessCustomer() {
-        return null;
+    public Mono<BusinessCustomer> getByIdBusinessCustomer(String id) {
+        return businessCustomerRepository.findById(id);
     }
 
     @Override
-    public Mono<BusinessCustomer> createBusinessustomer() {
-        return null;
+    public Mono<BusinessCustomer> createBusinessustomer(BusinessCustomer businessCustomer) {
+        return businessCustomerRepository.save(businessCustomer);
     }
 
     @Override
-    public Mono<BusinessCustomer> updateBusinessCustomer() {
-        return null;
+    public Mono<BusinessCustomer> updateBusinessCustomer(BusinessCustomer businessCustomer) {
+        return businessCustomerRepository.save(businessCustomer);
     }
 
     @Override
-    public Mono<BusinessCustomer> deleteBusinessCustomer() {
-        return null;
+    public Mono<Void> deleteBusinessCustomer(BusinessCustomer businessCustomer) {
+        return businessCustomerRepository.delete(businessCustomer);
     }
+
+
 }

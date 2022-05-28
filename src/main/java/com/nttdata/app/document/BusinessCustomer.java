@@ -7,7 +7,9 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.List;
 
-//Clase que representa a un cliente como persona Juridica
+/**
+ *Esta clase es la representacion de un tipo de cliente como persona jurídica
+ * */
 @Data
 @ToString
 @Document(collection = "businessCustomer")
@@ -15,7 +17,7 @@ public class BusinessCustomer {
 
     //Atributo id del cliente como persona jurídica
     @Id
-    private String idBusinessCustomer;
+    private String idCustomer;
     //Atributo de razon social de la persona jurídica
     private String businessName;
     //Atributo de numero de ruc como persona jurídica

@@ -6,8 +6,8 @@ import reactor.core.publisher.Mono;
 
 public interface IBusinessCustomerService {
     Flux<BusinessCustomer> getAllBusinessCustomer();
-    Mono<BusinessCustomer> getByIdBusinessCustomer();
-    Mono<BusinessCustomer>createBusinessustomer();
-    Mono<BusinessCustomer>updateBusinessCustomer();
-    Mono<BusinessCustomer>deleteBusinessCustomer();
+    Mono<BusinessCustomer> getByIdBusinessCustomer(String id);
+    Mono<BusinessCustomer>createBusinessustomer(BusinessCustomer businessCustomer);
+    Mono<BusinessCustomer>updateBusinessCustomer(BusinessCustomer businessCustomer);
+    Mono<Void>deleteBusinessCustomer(BusinessCustomer businessCustomer);
 }

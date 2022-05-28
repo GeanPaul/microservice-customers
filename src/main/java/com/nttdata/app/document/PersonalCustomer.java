@@ -5,14 +5,17 @@ import lombok.ToString;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-//Clase que representa a una persona natural
+/**
+ * Esta clase es nuestra entidad de tipo de cliente como persona natural
+ * */
 @Data
 @ToString
 @Document(collection = "personalCustomer")
 public class PersonalCustomer {
+
     //Id del cliente como persona natural
     @Id
-    private String idPersonalCustomer;
+    private String idCustomer;
     //Atributo primeros nombres del cliente como persona natural
     private String firstName;
     //Atributo de apellidos del cliente como persona natural
