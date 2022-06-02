@@ -2,6 +2,9 @@ package com.nttdata.app.controller;
 
 import com.nttdata.app.document.BusinessCustomer;
 import com.nttdata.app.document.PersonalCustomer;
+import com.nttdata.app.models.BusinessCredit;
+import com.nttdata.app.models.CurrentAccount;
+import com.nttdata.app.models.PersonalCredit;
 import com.nttdata.app.service.impl.BusinessCustomerServiceImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -61,5 +64,23 @@ public class BusinessCustomerController {
         });
 
     }
+
+    //=========== CONEXION CON MICROSERVICE CREDITS==================
+
+    @GetMapping("/credits/{idCustomer}")
+    public Flux<BusinessCredit>getBusinessCreditFindIdCustomer(@PathVariable String idCustomer)
+    {
+        return businessCustomerServiceImpl.getBusinessCreditByIdCustomer(idCustomer);
+    }
+
+    @GetMapping("/current-account/{idCustomer}")
+    public Flux<CurrentAccount> getAllCurrentAccountsPersonalByIdCustomer(@PathVariable String idCustomer)
+    {
+        return  businessCustomerServiceImpl.getCurrentAccountBusinessByIdCustomer(idCustomer);
+
+    }
+
+
+
 
 }

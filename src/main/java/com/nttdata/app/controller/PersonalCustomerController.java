@@ -1,6 +1,8 @@
 package com.nttdata.app.controller;
 
+import com.nttdata.app.config.RestTemplateConfig;
 import com.nttdata.app.document.PersonalCustomer;
+import com.nttdata.app.models.*;
 import com.nttdata.app.service.impl.PersonalCustomerServiceImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +19,10 @@ public class PersonalCustomerController {
 
     @Autowired
     private PersonalCustomerServiceImpl personalCustomerServiceImpl;
+
+    @Autowired
+    private RestTemplateConfig restTemplateConfigu;
+
 
     @RequestMapping
     public Flux<PersonalCustomer> getAllPersonalCustomer() {
@@ -60,6 +66,54 @@ public class PersonalCustomerController {
         });
 
     }
+
+
+    // ========= CONEXION CON MICROSERVICIO CREDITS ==========
+
+    @GetMapping("/credits/{idCustomer}")
+        public Mono<PersonalCredit>getPersonalCreditFindIdCustomer( @PathVariable String idCustomer)
+        {
+            return personalCustomerServiceImpl.getPersonalCreditByIdCustomer(idCustomer);
+        }
+
+    @GetMapping("/savings-account/{idCustomer}")
+    public Mono<SavingsAccount>getSavingsAccountsPersonalFindIdCustomer( @PathVariable String idCustomer)
+    {
+        return personalCustomerServiceImpl.getSavingsAccountByIdCustomer(idCustomer);
+    }
+    @GetMapping("/current-account/{idCustomer}")
+    public Flux<CurrentAccount>getCurrentAccountPersonalFindIdCustomer( @PathVariable String idCustomer)
+    {
+        return personalCustomerServiceImpl.getCurrentAccountPersonalByIdCustomer(idCustomer);
+    }
+
+    @GetMapping("/fixedterm-account/{idCustomer}")
+    public Flux<FixedTermAccount>getFixedTermAccountPersonalFindIdCustomer(@PathVariable String idCustomer)
+    {
+        return personalCustomerServiceImpl.getFixedTermAccountPersonalByIdCustomer(idCustomer);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 }
 
