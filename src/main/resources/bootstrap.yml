@@ -1,6 +1,6 @@
 spring:
   application:
-    name: microservice-customers-dev
+    name: microservice-customers
   cloud:
     config:
       enabled: true
